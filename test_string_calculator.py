@@ -26,3 +26,14 @@ class StringCalculatorTest(unittest.TestCase):
     def test_should_return_sum_given_string_of_numbers_split_by_comma_and_newline(self):
         result = StringCalculator().add("1\n2,3")
         self.assertEqual(6, result)
+
+    def test_should_return_sum_given_string_of_numbers_with_new_format(self):
+        result = StringCalculator().add("//;\n1;2")
+        self.assertEqual(3, result)
+
+    def test_extract_delimiter_should_split_delimiter_and_number_string(self):
+        result = StringCalculator().extract_delimiter("//;\n1;2")
+        self.assertEqual((";", "1;2"), result)
+
+
+
