@@ -55,3 +55,6 @@ class StringCalculatorTest(unittest.TestCase):
     def test_should_return_0_if_no_number_in_input_string(self):
         result = StringCalculator().add("//;\n")
         self.assertEqual(0, result)
+
+
+        
