@@ -28,12 +28,20 @@ class StringCalculatorTest(unittest.TestCase):
         self.assertEqual(6, result)
 
     def test_should_return_sum_given_string_of_numbers_with_new_format(self):
-        result = StringCalculator().add("//;\n1;2")
+        result = StringCalculator().calculate("//;\n1;2")
         self.assertEqual(3, result)
 
     def test_extract_delimiter_should_split_delimiter_and_number_string(self):
         result = StringCalculator().extract_delimiter("//;\n1;2")
         self.assertEqual((";", "1;2"), result)
+
+    def test_extract_delimiter_should_return_no_delimiter_and_number_string_given_no_delimiter(self):
+        result = StringCalculator().extract_delimiter("1,2")
+        self.assertEqual(("", "1,2"), result)
+    
+    def test_extract_delimiter_should_return_tuple_of_empty_strings_given_empty_input(self):
+        result = StringCalculator().extract_delimiter("")
+        self.assertEqual(("", ""), result)
 
 
 
